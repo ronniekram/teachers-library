@@ -21,6 +21,9 @@ class UsersController < ApplicationController
 
   def show
     redirect_to '/' unless current_user
+    if @user.nil?
+      redirect_to '/'
+    end 
   end
 
   def edit
