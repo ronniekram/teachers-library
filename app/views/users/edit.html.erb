@@ -21,4 +21,6 @@
 
 <% end %>
 
-<p> <%= link_to "Delete Account", user_path(@user), method: 'delete' %> </p>
+<%= form_tag user_path(@user.id), method: "delete" do %>
+  <%= submit_tag "Delete Account", class: "btn" %>
+<% end %>

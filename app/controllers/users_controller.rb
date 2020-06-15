@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   end 
 
   def show
+    redirect_to '/' unless current_user
   end
 
   def edit
@@ -32,7 +33,7 @@ class UsersController < ApplicationController
   end 
 
   def destroy
-    @user.delete
+    @user.destroy unless !current_user
     redirect_to '/'
   end 
 

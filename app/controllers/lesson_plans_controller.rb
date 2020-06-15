@@ -1,4 +1,5 @@
 class LessonPlansController < ApplicationController
+  before_action :verified, except: [:index, :show]
   before_action :set_lesson_plan, except: [:index, :new, :create]
 
   def index 
