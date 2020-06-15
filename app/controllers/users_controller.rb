@@ -25,9 +25,13 @@ class TeachersController < ApplicationController
   end 
 
   def update
+    @user.update(user_params)
+    @user.save 
+    redirect_to user_path(user)
   end 
 
   def destroy
+    @user.destroy
   end 
 
   private 

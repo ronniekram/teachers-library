@@ -1,1 +1,3 @@
-List of all lesson plans - link to show
+<% @lesson_plans.each do |lp| %>
+  <li> <%= link_to lp.name, lesson_plan_path(lp) %></li>
+<% end %>
