@@ -1,11 +1,9 @@
 class UsersController < ApplicationController
+  before_action :verified, except: [:new, :create]
   before_action :set_user, except: [:index, :new, :create]
 
   def index 
   end 
-
-  def show
-  end
 
   def new
     @user = User.new
@@ -21,6 +19,9 @@ class UsersController < ApplicationController
     end 
   end 
 
+  def show
+  end
+
   def edit
   end 
 
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
   end 
 
   def destroy
-    @user.destroy
+    @user.delete
     redirect_to '/'
   end 
 
