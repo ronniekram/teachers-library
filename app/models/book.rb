@@ -1,4 +1,4 @@
 class Book < ApplicationRecord
-  has_many :lesson_plans
-  belongs_to :teacher
+  belongs_to :user
+  belongs_to :lesson_plan
 end

@@ -1,1 +1,7 @@
-Edit Book Name, Author, Subjects
+<h1>Edit Book: </h1>
+
+<%= render 'form' %>
+
+<%= form_tag book_path(@book.id), method: "delete" do %>
+  <%= submit_tag "Delete Book" %>
+<% end %>

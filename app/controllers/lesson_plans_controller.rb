@@ -1,9 +1,9 @@
 class LessonPlansController < ApplicationController
-  before_action :verified, except: [:index, :show]
+  before_action :verified
   before_action :set_lesson_plan, except: [:index, :new, :create]
 
   def index 
-    @lesson_plans = LessonPlan.all
+    @lesson_plans = current_user.lesson_plans
   end 
 
   def show
@@ -14,15 +14,22 @@ class LessonPlansController < ApplicationController
   end 
 
   def create 
+    lesson_plan = LessonPlan.create(lesson_plan_params)
+    redirect_to lesson_plan_path(lesson_plan)
   end 
 
   def edit 
   end 
 
   def update
+    @lesson_plan.update(lesson_plan_params)
+    @lesson_plan.save
+    redirect_to lesson_plan_path(@lesson_plan)
   end 
 
   def destroy
+    @lesson_plan.destroy unless !current_user
+
   end 
 
   private 

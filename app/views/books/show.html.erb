@@ -1,6 +1,5 @@
-Show a Book - 
-Name
-Author
-Subjects 
+<h3> <%= @book.title %></h3>
+<p> <%= @book.author %></p>
+<p> <%= @book.subject %></p>
 
-Link to Edit & Delete, unless book does not belong to user (allow add to user's books?)
+<%= link_to "Edit Book", edit_book_path(@book) %>

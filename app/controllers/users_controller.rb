@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :verified, except: [:new, :create]
+  before_action :verified, except: [:index, :new, :create]
   before_action :set_user, except: [:index, :new, :create]
 
   def index 
@@ -36,6 +36,7 @@ class UsersController < ApplicationController
   end 
 
   def destroy
+    session[:user_id].destroy
     @user.destroy unless !current_user
     redirect_to '/'
   end 

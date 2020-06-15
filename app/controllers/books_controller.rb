@@ -14,15 +14,22 @@ class BooksController < ApplicationController
   end 
 
   def create 
+    book = Book.create(book_params)
+    redirect_to book_path(book.id)
   end 
 
   def edit 
   end 
 
   def update
+    @book.update(book_params)
+    @book.save
+    redirect_to book_path(@book)
   end 
 
   def destroy
+    @book.destroy unless !current_user
+    redirect_to user_path(current_user)
   end 
 
   private
