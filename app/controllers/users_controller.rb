@@ -32,6 +32,7 @@ class TeachersController < ApplicationController
 
   def destroy
     @user.destroy
+    redirect_to '/'
   end 
 
   private 
