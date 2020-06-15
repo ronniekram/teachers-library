@@ -12,6 +12,13 @@ class TeachersController < ApplicationController
   end 
 
   def create 
+    user = User.create(user_params)
+    if user.save && (user.password == user.password_confirmation)
+      session[:user_id] = user.id 
+      redirect_to user_path(user)
+    else  
+      render 'new'
+    end 
   end 
 
   def edit
