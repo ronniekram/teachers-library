@@ -6,4 +6,6 @@
     <li> Email: <%= @user.email %> </li>
     <li> School: <%= @user.school %> </li>
     <li> Grade Taught: <%= @user.grade %> </li>
-  </ul>
+  </ul> <br>
+
+  <p> <%= link_to "Edit Profile", edit_user_path(@user) %> | <%= link_to "Logout", logout_path %> | <%= link_to "Delete Account", delete_path %> </p>
