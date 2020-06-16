@@ -1,44 +1,57 @@
 class BooksController < ApplicationController
-  before_action :verified, except: [:index, :show]
-  before_action :set_book, except: [:index, :new, :create]
+  before_action :verified
 
   def index 
-    @books = Book.all
-  end 
+      @user = User.find_by(id: params[:user_id])
+      @books = @user.books.all
+  end
 
   def show
+    if params[:user_id]
+      @user = User.find_by(id: params[:id])
+      @book = @user.books.find_by(id: params[:user_id])
+      redirect_to user_book_path(@user, @book)
+    else 
+      redirect_to '/'
+    end
   end 
-  
+
   def new 
     @book = Book.new
   end 
 
   def create 
-    book = Book.create(book_params)
-    redirect_to book_path(book.id)
+    user = User.find_by(id: params[:id])
+    book = user.books.build(book_params)
+    book.save
+    if book 
+      redirect_to user_book_path(book)
+    else 
+      render :new
+    end 
   end 
+
 
   def edit 
   end 
 
   def update
     @book.update(book_params)
-    @book.save
     redirect_to book_path(@book)
   end 
 
   def destroy
-    @book.destroy unless !current_user
-    redirect_to user_path(current_user)
+    @book.destroy
+    redirect_to books_path
   end 
 
   private
 
   def book_params
-    params.require(:book).permit(:title, :author, :subject)
+    params.require(:book).permit(:title, :author, :subject, :user_id)
   end 
 
   def set_book
-    @book = Book.find_by(id: params[:id])
+    @book = Book.find(params[:id])
   end 
 end

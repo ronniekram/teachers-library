@@ -4,6 +4,7 @@ class CreateLessonPlans < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :subject
       t.integer :duration
+      t.integer :user_id
       t.timestamps
     end
   end

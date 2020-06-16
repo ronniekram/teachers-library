@@ -15,3 +15,9 @@
   User.create(username: username, name: name, email: email, password: password, grade: grade)
 end 
 
+Book.create(title: "title 1", author: "author1", subject: "subject 1", user_id: 1)
+Book.create(title: "title 2", author: "author2", subject: "subject 2", user_id: 1)
+Book.create(title: "title 3", author: "author3", subject: "subject 3", user_id: 1)
+Book.create(title: "title 4", author: "author4", subject: "subject 4", user_id: 1)
+Book.create(title: "title 5", author: "author5", subject: "subject 6", user_id: 1)
+

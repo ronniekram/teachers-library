@@ -36,8 +36,7 @@ class UsersController < ApplicationController
   end 
 
   def destroy
-    session[:user_id].destroy
-    @user.destroy unless !current_user
+    remove_user unless !current_user
     redirect_to '/'
   end 
 

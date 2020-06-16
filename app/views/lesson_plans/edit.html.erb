@@ -1,5 +1,7 @@
-Edit Lesson Plan 
-Name
-Subject
-Duration (Weeks)
-Books 
+<h1>Edit Lesson Plan: </h1>
+
+<%= render 'form' %>
+
+<%= form_tag user_lesson_plan_path(@lesson_plan.id), method: "delete" do %>
+  <%= submit_tag "Delete Lesson Plan" %>
+<% end %>

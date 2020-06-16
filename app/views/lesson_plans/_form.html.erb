@@ -1,0 +1,12 @@
+<%= form_for @lesson_plan do |f| %>
+  <%= f.label :name, "Name: " %>
+  <%= f.text_field :name %> <br>
+
+  <%= f.label :subject, "Subject: " %>
+  <%= f.text_field :subject %> <br>
+
+  <%= f.label :duration, "Duration (in days): " %>
+  <%= f.number_field :duration %>
+
+  <%= f.submit %>
+<% end %>

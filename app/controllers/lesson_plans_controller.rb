@@ -3,11 +3,7 @@ class LessonPlansController < ApplicationController
   before_action :set_lesson_plan, except: [:index, :new, :create]
 
   def index 
-    @lesson_plans = current_user.lesson_plans
-  end 
-
-  def show
-  end 
+  end  
   
   def new 
     @lesson_plan = LessonPlan.new
@@ -17,6 +13,9 @@ class LessonPlansController < ApplicationController
     lesson_plan = LessonPlan.create(lesson_plan_params)
     redirect_to lesson_plan_path(lesson_plan)
   end 
+
+  def show
+  end
 
   def edit 
   end 

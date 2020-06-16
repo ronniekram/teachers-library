@@ -1,7 +1,18 @@
 <h1>Edit Book: </h1>
 
-<%= render 'form' %>
+<%= form_for @book do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %> <br>
 
-<%= form_tag book_path(@book.id), method: "delete" do %>
+  <%= f.label :author %>
+  <%= f.text_field :author %> <br>
+
+  <%= f.label :subject %>
+  <%= f.text_field :subject %> <br>
+
+  <%= f.submit class: "btn" %>
+<% end %>
+
+<%= form_tag user_book_path(@book.id), method: "delete" do %>
   <%= submit_tag "Delete Book" %>
 <% end %>
