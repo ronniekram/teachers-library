@@ -14,7 +14,7 @@ class LessonPlansController < ApplicationController
     @lesson_plan = current_user.lesson_plans.build(lesson_plan_params)
 
     if @lesson_plan.save
-      redirect_to @lesson_plan
+      redirect_to lesson_plan_path(@lesson_plan)
     else 
       render :new
     end 

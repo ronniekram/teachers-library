@@ -10,12 +10,12 @@ Rails.application.routes.draw do
   delete '/sessions', to: 'sessions#destroy'
 
   resources :users, only: [:show, :edit, :update] do 
-    resources :books, only: [:show, :index, :new, :edit],
+    resources :books, only: [:show, :index, :new, :edit]
     resources :lesson_plans, only: [:show, :index, :new, :edit]
   end 
 
-  resources :books, except: [:index, :show, :new, :edit]
-  resources :lesson_plans, except: [:index, :show, :new, :edit]
+  resources :books
+  resources :lesson_plans
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
