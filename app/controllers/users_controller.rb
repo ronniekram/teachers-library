@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
-  before_action :verified, except: [:index, :new, :create]
+  before_action :is_logged_in?, except: [:index, :new, :create]
   before_action :set_user, except: [:index, :new, :create]
 
   def index 
+    if current_user 
+      redirect_to user_path(current_user)
+    end 
   end 
 
   def new

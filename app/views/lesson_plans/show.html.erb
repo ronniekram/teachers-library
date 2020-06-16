@@ -1,7 +1,4 @@
-Show Lesson Plan
-Name
-Subject
-Duration
-Books
-
-Link to edit and delete, unless lesson plan does not belong to user
+<h1><%= current_user.name %> - <%= @lesson_plan.name %> </h1>
+<p>Subject: <%= @lesson_plan.subject %></p>
+<p>Duration: <%= @lesson_plan.duration %> days</p>
+<p>List of Books Will Go Here</p>

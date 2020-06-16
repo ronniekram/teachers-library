@@ -1,4 +1,5 @@
 class Book < ApplicationRecord
   belongs_to :user
-  # belongs_to :lesson_plan
+  has_many :lesson_books
+  has_many :lesson_plans, through: :lesson_books
 end
