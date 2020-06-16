@@ -9,6 +9,7 @@
   <%= f.number_field :duration %> <br>
 
   <%= f.label :books %>
+  <%= f.collection_check_boxes :book_ids, current_user.books.all, :id, :title %> <br>
 
   <%= f.submit %>
 <% end %>

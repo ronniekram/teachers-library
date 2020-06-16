@@ -20,6 +20,7 @@ class BooksController < ApplicationController
   end 
 
   def show
+    redirect_to '/' unless current_user
   end 
 
   def edit 

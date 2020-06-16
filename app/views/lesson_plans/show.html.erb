@@ -1,4 +1,10 @@
 <h1><%= current_user.name %> - <%= @lesson_plan.name %> </h1>
 <p>Subject: <%= @lesson_plan.subject %></p>
 <p>Duration: <%= @lesson_plan.duration %> days</p>
-<p>List of Books Will Go Here</p>
+
+<p>Books: </p> 
+<%= @lesson_plan.books.each do |book| %>
+<li> <%= book.title %> </li>
+<% end %>
+
+  <%= link_to "Edit Lesson Plan", edit_lesson_plan_path(@lesson_plan) %> | <%= link_to "Your Lesson Plans", user_lesson_plans_path(current_user) %>
