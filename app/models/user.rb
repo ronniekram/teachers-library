@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   has_many :books
   has_many :lesson_plans
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  validates :user_name, format:{ with: /[a-zA-Z]/ }
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
 
@@ -14,5 +14,7 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
     end
   end
-    
+
 end
+
+
