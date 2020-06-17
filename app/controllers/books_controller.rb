@@ -1,6 +1,5 @@
 class BooksController < ApplicationController
   before_action :set_book, except: [:index, :new, :create]
-  before_action :verify
 
   def index 
     @books = current_user.books.all
@@ -13,14 +12,13 @@ class BooksController < ApplicationController
   def create 
     @book = current_user.books.build(book_params)
     if @book.save
-      redirect_to book_path(@book)
+      redirect_to user_book_path(current_user, @book)
     else 
       render :new 
     end 
   end 
 
   def show
-    redirect_to '/' unless current_user
   end 
 
   def edit 
@@ -28,18 +26,12 @@ class BooksController < ApplicationController
 
   def update
     @book.update(book_params)
-    redirect_to @book
+    redirect_to user_book_path(current_user, @book)
   end 
 
   def destroy
-    # @book.destroy
-    # redirect_to '/'
-    if current_user 
-      @book.destroy 
-      redirect_to '/'
-    else 
-      redirect_to '/'
-    end 
+    @book.destroy
+    redirect_to user_books_path(current_user)
   end 
 
   private

@@ -1,6 +1,5 @@
 class LessonPlansController < ApplicationController
   before_action :set_lesson_plan, except: [:index, :new, :create]
-  before_action :is_logged_in?
 
   def index 
       @lesson_plans = current_user.lesson_plans.all
@@ -14,7 +13,7 @@ class LessonPlansController < ApplicationController
     @lesson_plan = current_user.lesson_plans.build(lesson_plan_params)
 
     if @lesson_plan.save
-      redirect_to lesson_plan_path(@lesson_plan)
+      redirect_to user_lesson_plan_path(current_user, @lesson_plan)
     else 
       render :new
     end 
@@ -29,11 +28,12 @@ class LessonPlansController < ApplicationController
 
   def update
     @lesson_plan.update(lesson_plan_params)
-    redirect_to @lesson_plan
+    redirect_to user_lesson_plan_path(current_user, @lesson_plan)
   end 
 
   def destroy
     @lesson_plan.destroy
+    redirect_to user_lesson_plans_path(current_user)
   end 
 
   private 

@@ -7,4 +7,4 @@
 <li> <%= book.title %> </li>
 <% end %>
 
-  <%= link_to "Edit Lesson Plan", edit_lesson_plan_path(@lesson_plan) %> | <%= link_to "Your Lesson Plans", user_lesson_plans_path(current_user) %>
+  <%= link_to "Edit Lesson Plan", edit_user_lesson_plan_path(@lesson_plan) %> | <%= link_to "Your Lesson Plans", user_lesson_plans_path(current_user) %>
