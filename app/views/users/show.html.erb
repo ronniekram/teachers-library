@@ -11,4 +11,4 @@
 
   <p> <%= link_to "My Library", user_books_path(@user) %> |  <%= link_to "My Lesson Plans", user_lesson_plans_path(@user) %> </p>
 
-  <p> <%= link_to "Edit Profile", edit_user_path(@user) %> | <%= link_to "Logout", '/sessions', method: 'delete' %> </p>
+  <p> <%= link_to "Edit Profile", edit_user_path(@user) %> | <%= link_to "Logout", sessions_path, method: 'delete' %> </p>

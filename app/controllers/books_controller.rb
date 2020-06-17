@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, except: [:index, :new, :create]
-  before_action :is_logged_in?
+  before_action :verify
 
   def index 
     @books = current_user.books.all

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :is_logged_in?, except: [:index, :new, :create]
+  before_action :verify, except: [:index, :new, :create]
   before_action :set_user, except: [:index, :new, :create]
 
   def index 
@@ -13,12 +13,13 @@ class UsersController < ApplicationController
   end 
 
   def create 
-    user = User.create(user_params)
-    if user.save && (user.password == user.password_confirmation)
+    new = User.new(user_params)
+    if new.password == new.password_confirmation
+      user = User.create(user_params)
       session[:user_id] = user.id 
       redirect_to user_path(user)
     else  
-      render 'new'
+      redirect_to '/'
     end 
   end 
 

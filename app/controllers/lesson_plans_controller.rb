@@ -3,7 +3,7 @@ class LessonPlansController < ApplicationController
   before_action :is_logged_in?
 
   def index 
-    @lesson_plans = current_user.lesson_plans.all
+      @lesson_plans = current_user.lesson_plans.all
   end  
   
   def new 
@@ -22,7 +22,6 @@ class LessonPlansController < ApplicationController
   end 
 
   def show
-    redirect_to '/' unless current_user
   end
 
   def edit 
@@ -34,7 +33,7 @@ class LessonPlansController < ApplicationController
   end 
 
   def destroy
-    @lesson_plan.destroy unless !current_user
+    @lesson_plan.destroy
   end 
 
   private 
