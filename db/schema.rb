@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_17_021300) do
+ActiveRecord::Schema.define(version: 2020_06_17_191647) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -48,8 +48,12 @@ ActiveRecord::Schema.define(version: 2020_06_17_021300) do
     t.string "name"
     t.string "grade"
     t.string "school"
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["provider"], name: "index_users_on_provider"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["uid"], name: "index_users_on_uid"
   end
 
   add_foreign_key "lesson_books", "books"
