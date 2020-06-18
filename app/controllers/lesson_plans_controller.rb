@@ -13,7 +13,7 @@ class LessonPlansController < ApplicationController
     @lesson_plan = current_user.lesson_plans.build(lesson_plan_params)
 
     if @lesson_plan.save
-      redirect_to user_lesson_plan_path(current_user, @lesson_plan)
+      redirect
     else 
       render :new
     end 
@@ -28,7 +28,11 @@ class LessonPlansController < ApplicationController
 
   def update
     @lesson_plan.update(lesson_plan_params)
-    redirect_to user_lesson_plan_path(current_user, @lesson_plan)
+    if @lesson_plan.save 
+      redirect
+    else 
+      render :edit
+    end 
   end 
 
   def destroy
@@ -44,6 +48,10 @@ class LessonPlansController < ApplicationController
 
   def set_lesson_plan
     @lesson_plan = LessonPlan.find_by(id: params[:id])
+  end 
+
+  def redirect 
+    redirect_to user_lesson_plan_path(current_user, @lesson_plan)
   end 
 
 end

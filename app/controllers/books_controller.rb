@@ -32,7 +32,11 @@ class BooksController < ApplicationController
   def update
     @book.update(book_params)
     # redirect_to user_book_path(current_user, @book)
-    redirect
+    if @book.save 
+      redirect
+    else 
+      render :edit 
+    end 
   end 
 
   def destroy
