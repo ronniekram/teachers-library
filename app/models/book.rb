@@ -1,8 +1,17 @@
 class Book < ApplicationRecord
+  attr_accessor :name
+
   belongs_to :user
   has_many :subjects
   has_many :lesson_plans, through: :subjects 
 
   validates :title, :uniqueness => true
+
+  # def subjects_attributes=(subject_attributes)
+  #   subject_attributes.values.each do |subject_attribute|
+  #     subject = Subject.find_or_create_by(subject_attribute)
+  #     self.subjects << subject
+  #   end
+  # end
 
 end

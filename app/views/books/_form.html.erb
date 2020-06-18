@@ -6,6 +6,11 @@
 
   <%= f.label :author %>
   <%= f.text_field :author %> <br>
+  <%= f.label "Subject(s): " %> <br>
+  <%= f.collection_check_boxes :subject_ids, Subject.all, :id, :name %> <br>
+    <%= f.fields_for :subjects, book.subjects.build do |subjects_fields| %>
+    <%= subjects_fields.text_field :name %>
+  <% end %>
 
 
   <%= f.submit class: "btn" %>
