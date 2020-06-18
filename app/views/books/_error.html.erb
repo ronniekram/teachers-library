@@ -1,0 +1,7 @@
+<% if @book.errors.any? %>
+  <div id="error-exp">
+    <% @book.errors.full_messages.each do |msg|%>
+      <li> <%= msg %> </li>
+    <% end %>
+  </div>
+<% end %>
