@@ -15,7 +15,8 @@ class BooksController < ApplicationController
   def create 
     @book = current_user.books.build(book_params)
     if @book.save
-      redirect_to user_book_path(current_user, @book)
+      # redirect_to user_book_path(current_user, @book)
+      redirect
     else 
       #redirect loses error messages
       render :new 
@@ -30,7 +31,8 @@ class BooksController < ApplicationController
 
   def update
     @book.update(book_params)
-    redirect_to user_book_path(current_user, @book)
+    # redirect_to user_book_path(current_user, @book)
+    redirect
   end 
 
   def destroy
@@ -53,5 +55,9 @@ class BooksController < ApplicationController
   def set_book
     #comes from URI '/locations/:id/' dynamic route - dynamic field is param
     @book = Book.find(params[:id])
+  end 
+
+  def redirect 
+    redirect_to user_book_path(current_user, @book)
   end 
 end
