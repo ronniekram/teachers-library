@@ -3,6 +3,7 @@ class CreateLessonBooks < ActiveRecord::Migration[6.0]
     create_table :lesson_books do |t|
       t.belongs_to :lesson_plan, index: true, foreign_key: true
       t.belongs_to :book, index: true, foreign_key: true
+      t.string :subject
     end
   end
 end
