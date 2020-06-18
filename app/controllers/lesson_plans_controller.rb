@@ -11,7 +11,6 @@ class LessonPlansController < ApplicationController
 
   def create 
     @lesson_plan = current_user.lesson_plans.build(lesson_plan_params)
-    @subject = @lesson_plan.subjects.build(subject_params)
 
     if @lesson_plan.save
       redirect_to user_lesson_plan_path(@lesson_plan)
@@ -40,7 +39,7 @@ class LessonPlansController < ApplicationController
   private 
 
   def lesson_plan_params
-    params.require(:lesson_plan).permit(:name, :subject, :duration, :user_id, subject_ids: [], subjects_attributes: [:name])
+    params.require(:lesson_plan).permit(:name, :subject, :duration, :user_id)
   end 
 
   def set_lesson_plan

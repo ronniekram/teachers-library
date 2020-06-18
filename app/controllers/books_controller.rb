@@ -6,14 +6,18 @@ class BooksController < ApplicationController
   end
 
   def new 
+    #inital object
     @book = Book.new
+    #associated object
+    @book.subjects.build
   end 
 
   def create 
     @book = current_user.books.build(book_params)
     if @book.save
-      redirect_to user_book_path(@book)
+      redirect_to user_book_path(current_user, @book)
     else 
+      #redirect loses error messages
       render :new 
     end 
   end 
@@ -26,7 +30,7 @@ class BooksController < ApplicationController
 
   def update
     @book.update(book_params)
-    redirect_to user_book_path(@book)
+    redirect_to user_book_path(current_user, @book)
   end 
 
   def destroy
@@ -37,10 +41,16 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :author, :subject, :user_id, subject_ids: [], subjects_attributes: [:name])
+    params.require(:book).permit(:title, 
+     :author,
+     :subject, 
+     :user_id, 
+     subjects_attributes: [:name]
+      )
   end 
 
   def set_book
+    #comes from URI '/locations/:id/' dynamic route - dynamic field is param
     @book = Book.find_by(id: params[:id])
   end 
 end

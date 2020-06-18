@@ -1,17 +1,16 @@
-<%= form_for @book do |f| %>
-<%= f.hidden_field :user_id %>
-  
+<%= form_with model: @book, local: true do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %> <br>
 
   <%= f.label :author %>
   <%= f.text_field :author %> <br>
-  <%= f.label "Subject(s): " %> <br>
+
+  <%= f.label "Subject(s): " %>
   <%= f.collection_check_boxes :subject_ids, Subject.all, :id, :name %> <br>
-    <%= f.fields_for :subjects, current_user.subjects.build do |subjects_fields| %>
-    <%= subjects_fields.text_field :name %> <br>
-  <% end %>
 
+  <%= f.fields_for :subjects do |subject_fields| %>
+    <%= subject_fields.text_field :name %>
+  <% end %> <br>
 
-  <%= f.submit class: "btn" %>
+  <%= f.submit %>
 <% end %>
