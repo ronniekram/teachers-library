@@ -15,6 +15,10 @@ class User < ApplicationRecord
     end
   end
 
+  # def make_title_case 
+  #   self.user_name = self.user_name.titlecase
+  # end 
+
 end
 
 
