@@ -1,9 +1,14 @@
 <%= form_with model: @book, local: true do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %> <br>
 
+<div class="field<%= ' field_with_errors' if @book.errors[:title].any? %>">
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+</div> <br>
+
+<div class="field<%= ' field_with_errors' if @book.errors[:author].any? %>">
   <%= f.label :author %>
-  <%= f.text_field :author %> <br>
+  <%= f.text_field :author %>
+  </div> <br>
 
   <%= f.label "Subject(s): " %>
   <%= f.collection_check_boxes :subject_ids, Subject.all, :id, :name %> <br>
@@ -14,3 +19,4 @@
 
   <%= f.submit %>
 <% end %>
+
