@@ -1,5 +1,8 @@
 <h3> <%= @book.title %></h3>
-<p> <%= @book.author %></p>
-<p> <%= @book.subject %></p>
+<p> Author: <%= @book.author %></p>
+<p> Subject(s): </p>
+<% @book.subjects.map do |subject| %>
+<li> <%= subject.name %></li>
+<% end %>
 
 <%= link_to "Edit Book", edit_user_book_path(@book) %> | <%= link_to "Your Books", user_books_path(current_user) %>

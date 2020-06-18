@@ -12,7 +12,7 @@ class BooksController < ApplicationController
   def create 
     @book = current_user.books.build(book_params)
     if @book.save
-      redirect_to user_book_path(current_user, @book)
+      redirect_to user_book_path(@book)
     else 
       render :new 
     end 
@@ -26,7 +26,7 @@ class BooksController < ApplicationController
 
   def update
     @book.update(book_params)
-    redirect_to user_book_path(current_user, @book)
+    redirect_to user_book_path(@book)
   end 
 
   def destroy

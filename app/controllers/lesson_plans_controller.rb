@@ -11,9 +11,10 @@ class LessonPlansController < ApplicationController
 
   def create 
     @lesson_plan = current_user.lesson_plans.build(lesson_plan_params)
+    @subject = @lesson_plan.subjects.build(subject_params)
 
     if @lesson_plan.save
-      redirect_to user_lesson_plan_path(current_user, @lesson_plan)
+      redirect_to user_lesson_plan_path(@lesson_plan)
     else 
       render :new
     end 
@@ -28,7 +29,7 @@ class LessonPlansController < ApplicationController
 
   def update
     @lesson_plan.update(lesson_plan_params)
-    redirect_to user_lesson_plan_path(current_user, @lesson_plan)
+    redirect_to user_lesson_plan_path( @lesson_plan)
   end 
 
   def destroy
