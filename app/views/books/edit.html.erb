@@ -2,6 +2,6 @@
 
 <%= render 'form' %>
 
-<%= form_tag user_book_path(@book.id), method: "delete" do %>
+<%= form_tag book_path(@book), :method => :delete, data: {confirm: "Are you sure?"} do %>
   <%= submit_tag "Delete Book" %>
 <% end %>

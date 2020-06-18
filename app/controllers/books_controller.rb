@@ -34,6 +34,7 @@ class BooksController < ApplicationController
   end 
 
   def destroy
+    @book = Book.find(params[:id])
     @book.destroy
     redirect_to user_books_path(current_user)
   end 
@@ -51,6 +52,6 @@ class BooksController < ApplicationController
 
   def set_book
     #comes from URI '/locations/:id/' dynamic route - dynamic field is param
-    @book = Book.find_by(id: params[:id])
+    @book = Book.find(params[:id])
   end 
 end
