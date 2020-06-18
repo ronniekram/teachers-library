@@ -1,3 +1,3 @@
 <% @lesson_plans.each do |plan| %>
-<li> <%= link_to plan.name, lesson_plan_path(plan) %></li>
+<li> <%= link_to plan.name, user_lesson_plan_path(plan) %></li>
 <% end %>

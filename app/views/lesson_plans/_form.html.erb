@@ -4,7 +4,7 @@
 
   <%= f.label "Subject(s): " %> <br>
   <%= f.collection_check_boxes :subject_ids, Subject.all, :id, :name %> <br>
-    <%= f.fields_for :subjects, lesson_plan.subjects.build do |subjects_fields| %>
+    <%= f.fields_for :subjects, @lesson_plan.subjects.build do |subjects_fields| %>
     <%= subjects_fields.text_field :name %>
   <% end %>
 
