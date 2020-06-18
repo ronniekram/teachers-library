@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 2020_06_17_213146) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "author"
-    t.string "subject"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -24,13 +23,13 @@ ActiveRecord::Schema.define(version: 2020_06_17_213146) do
   create_table "lesson_books", force: :cascade do |t|
     t.integer "lesson_plan_id"
     t.integer "book_id"
+    t.string "subject"
     t.index ["book_id"], name: "index_lesson_books_on_book_id"
     t.index ["lesson_plan_id"], name: "index_lesson_books_on_lesson_plan_id"
   end
 
   create_table "lesson_plans", force: :cascade do |t|
     t.string "name"
-    t.string "subject"
     t.integer "duration"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false

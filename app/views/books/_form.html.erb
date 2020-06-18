@@ -7,9 +7,6 @@
   <%= f.label :author %>
   <%= f.text_field :author %> <br>
 
-  <%= f.fields_for :lesson_books do |flb| %>
-    <%= flb.text_field :subject %>
-  <% end %>
 
   <%= f.submit class: "btn" %>
 <% end %>

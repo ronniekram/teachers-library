@@ -2,10 +2,6 @@
   <%= f.label :name, "Name: " %>
   <%= f.text_field :name %> <br>
 
-  <%= f.label :subject, "Subject: " %>
-  <%= f.fields_for :lesson_books do |flb| %>
-    <%= flb.text_field :subject %>
-  <% end %>
 
   <%= f.label :duration, "Duration (in days): " %>
   <%= f.number_field :duration %> <br>
