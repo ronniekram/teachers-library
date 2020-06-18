@@ -1,5 +1,8 @@
-<h1><%= current_user.name %> - <%= @lesson_plan.name %> </h1>
-<p>Subject: <%= @lesson_plan.subject %></p>
+<h1><%= current_user.user_name %> - <%= @lesson_plan.name %> </h1>
+<p>Subject(s): </p>
+<% @lesson_plan.subjects.each do |subject| %>
+  <li> <%= subject.name %></li>
+<% end %>
 <p>Duration: <%= @lesson_plan.duration %> days</p>
 
 <p>Books: </p> 
