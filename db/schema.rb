@@ -20,20 +20,20 @@ ActiveRecord::Schema.define(version: 2020_06_17_213146) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "lesson_books", force: :cascade do |t|
-    t.integer "lesson_plan_id"
-    t.integer "book_id"
-    t.string "subject"
-    t.index ["book_id"], name: "index_lesson_books_on_book_id"
-    t.index ["lesson_plan_id"], name: "index_lesson_books_on_lesson_plan_id"
-  end
-
   create_table "lesson_plans", force: :cascade do |t|
     t.string "name"
     t.integer "duration"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.integer "lesson_plan_id"
+    t.integer "book_id"
+    t.string "name"
+    t.index ["book_id"], name: "index_subjects_on_book_id"
+    t.index ["lesson_plan_id"], name: "index_subjects_on_lesson_plan_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,6 +53,6 @@ ActiveRecord::Schema.define(version: 2020_06_17_213146) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "lesson_books", "books"
-  add_foreign_key "lesson_books", "lesson_plans"
+  add_foreign_key "subjects", "books"
+  add_foreign_key "subjects", "lesson_plans"
 end

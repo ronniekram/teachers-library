@@ -1,9 +1,8 @@
 class Book < ApplicationRecord
   belongs_to :user
-  has_many :lesson_books
-  has_many :lesson_plans, through: :lesson_books 
+  has_many :subjects
+  has_many :lesson_plans, through: :subjects 
 
   validates :title, :uniqueness => true
-  
-  accepts_nested_attributes_for :lesson_books
+
 end
