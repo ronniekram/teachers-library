@@ -1,5 +1,13 @@
 <h1> <%= current_user.user_name %>'s Library</h1>
 
+<div>
+  <h4>Find Books by Author:</h4>
+  <%= form_tag("/users/:id/books", method: "get") do %>
+    <%= select_tag "author", options_from_collection_for_select(@books, "id", "author"), include_blank: true %>
+    <%= submit_tag "Filter" %>
+  <% end %>
+</div>
+
 <% @books.each do |book| %>
 <li> <%= link_to book.title, user_book_path(current_user, book) %> </li>
 <% end %>

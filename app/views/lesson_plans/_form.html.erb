@@ -17,7 +17,11 @@
 </div >
 
   <%= f.label "Books: " %> <br>
-  <%= f.collection_check_boxes :book_ids, current_user.books.all, :id, :title %> <br>
+    <% if current_user.books.empty? %>
+      <p> There are no books in your library. Add some and edit your lesson plan later. </p>
+    <% else %>
+      <%= f.collection_check_boxes :book_ids, current_user.books.all, :id, :title %> <br>
+    <% end %>
 
 
   <%= f.submit %>

@@ -2,7 +2,11 @@ class BooksController < ApplicationController
   before_action :set_book, except: [:index, :new, :create]
 
   def index 
-    @books = current_user.books.all
+    if !params[:author].blank?
+      @books = current_user.books.by_author(params[:author])
+    else
+      @books = current_user.books.all
+    end
   end
 
   def new 
@@ -35,7 +39,6 @@ class BooksController < ApplicationController
   end 
 
   def destroy
-    @book = Book.find(params[:id])
     @book.destroy
     redirect_to user_books_path(current_user)
   end 
