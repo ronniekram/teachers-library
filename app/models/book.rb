@@ -5,10 +5,5 @@ class Book < ApplicationRecord
   validates :title, :uniqueness => true
   validates :title, :author, :presence => true
   accepts_nested_attributes_for :subjects, reject_if: proc { |attributes| attributes['name'].empty? }
-  helper_method :by_subject
-
-  def self.by_subject(subject_id) 
-    where(subject: subject_id)
-  end 
 
 end
