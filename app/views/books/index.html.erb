@@ -2,8 +2,8 @@
 
 <div>
   <h4>Find Books by Author:</h4>
-  <%= form_tag("/users/:id/books", method: "get") do %>
-    <%= select_tag "author", options_from_collection_for_select(@books, "id", "author"), include_blank: true %>
+  <%= form_tag("/users/#{current_user.id}/books", method: "get") do %>
+    <%= select_tag "subjects", options_from_collection_for_select(@books, "id", "subjects", "name"), include_blank: true %>
     <%= submit_tag "Filter" %>
   <% end %>
 </div>

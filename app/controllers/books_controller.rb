@@ -2,8 +2,9 @@ class BooksController < ApplicationController
   before_action :set_book, except: [:index, :new, :create]
 
   def index 
-    if !params[:author].blank?
-      @books = current_user.books.by_author(params[:author])
+    @subjects = Subject.all
+    if !params[:subjects].blank?
+      @books = current_user.books.by_subject(params[:subjects])
     else
       @books = current_user.books.all
     end
