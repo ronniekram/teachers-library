@@ -46,7 +46,9 @@ class LessonPlansController < ApplicationController
     params.require(:lesson_plan).permit(:name, 
     :duration, 
     :user_id,
-    books_attributes: [:title]
+    :books,
+    :subject_ids => [],
+    :book_ids => []
     )
   end 
 

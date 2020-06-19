@@ -47,6 +47,7 @@ class BooksController < ApplicationController
      :author,
      :subject, 
      :user_id, 
+     :subject_ids => [],
      subjects_attributes: [:name]
       )
   end 
