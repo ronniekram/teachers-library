@@ -44,11 +44,10 @@ class LessonPlansController < ApplicationController
 
   def lesson_plan_params
     params.require(:lesson_plan).permit(:name, 
+    :topic,
     :duration, 
     :user_id,
     :books,
-    :subject_ids => [],
-    subjects_attributes: [:name],
     :book_ids => []
     )
   end 
