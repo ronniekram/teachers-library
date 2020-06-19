@@ -1,13 +1,11 @@
 <h1><%= current_user.user_name %> - <%= @lesson_plan.name %> </h1>
-<p>Subject(s): </p>
-<% @lesson_plan.subjects.map do |subject| %>
-  <li> <%= subject.name %></li>
-<% end %>
+
 <p>Duration: <%= @lesson_plan.duration %> days</p>
 
-<p>Books: </p> 
-<%= @lesson_plan.books.each do |book| %>
-<li> <%= book.title %> </li>
-<% end %>
+<p> Book(s): </p> 
+<% @lesson_plan.books.each do |book| %>
+<li> <%= link_to book.title, user_book_path(current_user, book) %></li>
+<% end %> <br>
 
-  <%= link_to "Edit Lesson Plan", edit_user_lesson_plan_path(@lesson_plan) %> | <%= link_to "Your Lesson Plans", user_lesson_plans_path(current_user) %>
+
+<%= link_to "Edit Lesson Plan", edit_user_lesson_plan_path(@lesson_plan) %> | <%= link_to "Your Lesson Plans", user_lesson_plans_path(current_user) %>
