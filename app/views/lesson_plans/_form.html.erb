@@ -10,11 +10,11 @@
   <%= f.number_field :duration %> <br>
 </div >
 
-  <%= f.label "Books: " %>
-  <%= f.collection_check_boxes :book_ids, Book.all, :id, :title %> <br>
+  <%= f.label "Books: " %> <br>
+  <%= f.collection_check_boxes :book_ids, current_user.books.all, :id, :title %> <br>
 
-  <%= f.label "Subjects: " %>
-  <%= f.collection_check_boxes :subjects_ids, Subject.all, :id, :name %> <br>
+  <%= f.label "Subject: " %> <br>
+  <%= f.collection_select :subject_ids, Subject.all, :id, :name %><br>
 
   <%= f.submit %>
 <% end %>

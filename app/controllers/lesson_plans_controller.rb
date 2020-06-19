@@ -48,6 +48,7 @@ class LessonPlansController < ApplicationController
     :user_id,
     :books,
     :subject_ids => [],
+    subjects_attributes: [:name],
     :book_ids => []
     )
   end 
