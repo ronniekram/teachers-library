@@ -1,3 +1,5 @@
+<h3> <%= current_user.user_name %>'s Lesson Plans</h3>
+
 <% @lesson_plans.each do |plan| %>
 <li> <%= link_to plan.name, user_lesson_plan_path(current_user, plan) %></li>
 <% end %>
