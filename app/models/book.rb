@@ -7,7 +7,6 @@ class Book < ApplicationRecord
   accepts_nested_attributes_for :subjects, reject_if: proc { |attributes| attributes['name'].empty? }, allow_destroy: true
 
   scope :alphabet, -> { order(title: :asc) }
-  scope :book_plans, -> { joins()}
 
 end
 

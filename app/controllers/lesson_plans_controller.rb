@@ -21,6 +21,7 @@
     end 
 
     def show
+      @subjects = @lesson_plan.books.subjects
     end
 
     def edit 

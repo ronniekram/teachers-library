@@ -6,7 +6,9 @@
 
 <p> Book(s): </p> 
 <% @lesson_plan.books.each do |book| %>
-<li> <%= link_to book.title, user_book_path(current_user, book) %></li>
+<li> 
+  <%= link_to book.title, user_book_path(current_user, book) %>
+</li>
 <% end %> <br>
 
 
