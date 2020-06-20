@@ -7,7 +7,7 @@
 
     def new 
       @book = Book.new
-      @subjects = @book.subjects.build
+       3.times { @book.subjects.build }
     end 
 
     def create 

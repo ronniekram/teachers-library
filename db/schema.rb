@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 2020_06_17_213146) do
     t.integer "lesson_plan_id"
     t.integer "book_id"
     t.string "name"
-    t.integer "book_ids"
     t.index ["book_id"], name: "index_subjects_on_book_id"
     t.index ["lesson_plan_id"], name: "index_subjects_on_lesson_plan_id"
   end

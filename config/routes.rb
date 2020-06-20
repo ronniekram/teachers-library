@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update] do 
     resources :books, only: [:show, :index, :new, :edit]
     resources :lesson_plans, only: [:show, :index, :new, :edit]
+    resources :subjects, only: [:destroy]
   end 
 
   resources :books, only: [:create, :update, :destroy]

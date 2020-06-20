@@ -4,7 +4,6 @@ class CreateSubjects < ActiveRecord::Migration[6.0]
       t.belongs_to :lesson_plan, index: true, foreign_key: true
       t.belongs_to :book, index: true, foreign_key: true
       t.string :name
-      t.integer :book_ids, array: true, default: []
     end
   end
 end

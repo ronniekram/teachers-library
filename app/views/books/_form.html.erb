@@ -10,12 +10,16 @@
   <%= f.text_field :author %>
   </div> <br>
 
-  <%= f.label "Subject(s): " %>
-  <%= f.collection_check_boxes :subject_ids, Subject.all, :id, :name %> <br>
+<div class="field">
+  <%= f.label "Subject(s):" %>
+      <% @book.subjects.each do |subject| %>
+        <li> <%= subject.name %> </li>
+      <% end %>
 
   <%= f.fields_for :subjects do |subject_fields| %>
-    <%= subject_fields.text_field :name %>
+    <%= subject_fields.text_field :name %> <br>
   <% end %> <br>
+</div>
 
   <%= f.submit %>
 <% end %>
