@@ -12,10 +12,6 @@
 
 <div class="field">
   <%= f.label "Subject(s):" %>
-      <% @book.subjects.each do |subject| %>
-        <li> <%= subject.name %> </li>
-      <% end %>
-
   <%= f.fields_for :subjects do |subject_fields| %>
     <%= subject_fields.text_field :name %> <br>
   <% end %> <br>

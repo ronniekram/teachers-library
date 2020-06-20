@@ -22,6 +22,11 @@
     def show
     end 
 
+    def search 
+      @title = params[:title]
+      @search_book = current_user.books.titled(@title).order(title: :asc)
+    end 
+
     def edit 
     end 
 
@@ -47,7 +52,8 @@
       :subject, 
       :user_id, 
       :subject_ids => [],
-      subjects_attributes: [:name]
+      subjects_attributes: [:name],
+      :search
         )
     end 
 

@@ -1,7 +1,8 @@
   class SubjectsController < ApplicationController
 
     def destroy 
-      Subject.find_by(id: params[:id]).destroy
+      @subject = current_user.subjects.find_by(id: params[:id])
+      @subject.destroy 
     end 
 
     private 

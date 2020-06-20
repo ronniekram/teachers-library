@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       get 'signup', to: 'devise/registrations#new'
     end 
 
+    get '/search' => 'books#search', :as => 'book_search' 
+
   resources :users, only: [:show, :edit, :update] do 
     resources :books, only: [:show, :index, :new, :edit]
     resources :lesson_plans, only: [:show, :index, :new, :edit]
