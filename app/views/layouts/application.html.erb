@@ -18,6 +18,16 @@
   <%= link_to 'My Lesson Plans', user_lesson_plans_path(current_user) %> |
   <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
   <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+
+    <%= form_tag(book_search_path, :method => "get",   
+    class: 'navbar-form navbar-left') do %>  
+      <div class="input-group">  
+        <%= search_field_tag :search, params[:search], placeholder: "Search for a book by name", class: "form-control" %>  
+        <div class="input-group-btn">  
+          <%= button_tag "", :class => 'btn btn-info',:name => nil%>  
+        </div>  
+      </div> 
+
 <% else %>
   <%= link_to "Sign up", signup_path, :class => 'navbar-link'  %> |
   <%= link_to "Login", login_path, :class => 'navbar-link'  %>
@@ -26,7 +36,9 @@
   <% if user_signed_in? %>
     <div class="navbar-nav mr-auto">
         <%= link_to "New Book", new_user_book_path(current_user) %> |
-        <%= link_to "New Lesson Plan", new_user_lesson_plan_path(current_user) %>
+        <%= link_to "New Lesson Plan", new_user_lesson_plan_path(current_user) %> 
+<% end %>
+
     </div>
   <% end %>
 

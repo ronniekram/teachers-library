@@ -1,8 +1,8 @@
   class BooksController < ApplicationController
-    before_action :set_book, except: [:index, :new, :create]
+    before_action :set_book, except: [:index, :new, :create, :search]
 
     def index 
-      @books = current_user.books.all
+      @books = current_user.books.alphabet
     end
 
     def new 
@@ -20,11 +20,6 @@
     end 
 
     def show
-    end 
-
-    def search 
-      @title = params[:title]
-      @search_book = current_user.books.titled(@title).order(title: :asc)
     end 
 
     def edit 
@@ -52,8 +47,7 @@
       :subject, 
       :user_id, 
       :subject_ids => [],
-      subjects_attributes: [:name],
-      :search
+      subjects_attributes: [:name]
         )
     end 
 

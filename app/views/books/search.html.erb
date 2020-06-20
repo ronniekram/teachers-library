@@ -1,0 +1,5 @@
+<h1>Search Results: </h1>
+
+<% @results.each do |result| %>
+  <li> <%= link_to result.title, user_book_path(current_user, result) %> </li>
+<% end %>

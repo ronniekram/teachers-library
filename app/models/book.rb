@@ -6,6 +6,7 @@ class Book < ApplicationRecord
   validates :title, :author, :presence => true
   accepts_nested_attributes_for :subjects, reject_if: proc { |attributes| attributes['name'].empty? }
 
-  scope :titled, => (title) { where("title LIKE ?", title) }
+  scope :alphabet, -> { order(title: :asc) }
 
 end
+
