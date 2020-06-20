@@ -7,6 +7,7 @@
   
     def new 
       @lesson_plan = LessonPlan.new
+      @lesson_plan.subjects.build
     end 
 
     def create 
@@ -49,7 +50,8 @@
       :duration, 
       :user_id,
       :books,
-      :book_ids => []
+      :book_ids => [],
+      :subject_attributes => [:name]
       )
     end 
 
