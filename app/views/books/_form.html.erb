@@ -13,7 +13,7 @@
 <div class="field">
   <%= f.label "Subject(s):" %> <br>
   <%= f.fields_for :subjects do |subject_fields| %>
-    <%= subject_fields.text_field :name %> <br>
+    <%= render 'subjects', :f =>  subject_fields %>
   <% end %> <br>
 </div>
 

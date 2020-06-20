@@ -1,0 +1,10 @@
+<div class="field">
+  <%= f.text_field :name %>
+</div>
+
+<div class="field">
+<% if :edit %>
+  <%= f.label :_destroy, "Remove Subject" %>
+  <%= f.check_box :_destroy %>
+  <% end %>
+</div>
