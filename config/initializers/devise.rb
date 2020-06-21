@@ -312,5 +312,5 @@ Devise.setup do |config|
 
   # config.omniauth :github, '57e799cc7ef726a1914b', '6745e69f39860bda43b44aae80c1caedd1d091d5', :scope => 'user:email'
 
-  config.omniauth :github, '57e799cc7ef726a1914b', '6745e69f39860bda43b44aae80c1caedd1d091d5', scope: 'user,public_repo'
+  config.omniauth :github, '57e799cc7ef726a1914b', '6745e69f39860bda43b44aae80c1caedd1d091d5', scope: 'ronniekram,public_repo'
 end
