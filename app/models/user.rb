@@ -14,6 +14,8 @@ class User < ApplicationRecord
     end
   end
 
+  #text fix
+
 end
 
 
