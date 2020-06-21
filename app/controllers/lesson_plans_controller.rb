@@ -2,7 +2,7 @@
     before_action :set_lesson_plan, except: [:index, :new, :create]
 
     def index 
-      @lesson_plans = current_user.lesson_plans.all
+      @lesson_plans = current_user.lesson_plans.all.dates
     end  
   
     def new 

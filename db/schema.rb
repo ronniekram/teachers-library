@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2020_06_17_213146) do
 
   create_table "lesson_plans", force: :cascade do |t|
     t.string "name"
+    t.date "start_date"
     t.integer "duration"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
