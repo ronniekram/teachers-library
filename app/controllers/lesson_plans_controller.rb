@@ -22,7 +22,6 @@
     end 
 
     def show
-      @subjects = @lesson_plan.books.subjects
     end
 
     def edit 
@@ -46,11 +45,12 @@
 
     def lesson_plan_params
       params.require(:lesson_plan).permit(:name, 
-      :topic,
+      :start_date,
       :duration, 
       :user_id,
       :books,
       :book_ids => [],
+      :subject_ids => [],
       :subject_attributes => [:name]
       )
     end 

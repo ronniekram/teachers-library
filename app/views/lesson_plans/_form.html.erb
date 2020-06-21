@@ -10,6 +10,10 @@
     <%= subject_fields.text_field :name %> <br>
   <% end %> <br>
 
+<div class="field<%= ' field_with_errors' if @lesson_plan.errors[:duration].any? %>">
+  <%= f.label :start_date, "Start Date: " %>
+  <%= f.date_field :start_date, value: f.object.try(:strftime,"%m/%d/%Y"), class: 'form-control' %> <br>
+</div >
 
 <div class="field<%= ' field_with_errors' if @lesson_plan.errors[:duration].any? %>">
   <%= f.label :duration, "Duration (in days): " %>
