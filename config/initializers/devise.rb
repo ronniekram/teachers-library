@@ -310,5 +310,7 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
   config.scoped_views = true
 
-  config.omniauth :github, '57e799cc7ef726a1914b', '6745e69f39860bda43b44aae80c1caedd1d091d5', :scope => 'user:email'
+  # config.omniauth :github, '57e799cc7ef726a1914b', '6745e69f39860bda43b44aae80c1caedd1d091d5', :scope => 'user:email'
+
+  config.omniauth :github, '57e799cc7ef726a1914b', '6745e69f39860bda43b44aae80c1caedd1d091d5', scope: 'user,public_repo'
 end

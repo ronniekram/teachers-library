@@ -4,7 +4,7 @@ class User < ApplicationRecord
   validates :user_name, format: { with: /[a-zA-Z]/, message: "Your name cannot contain numbers or symbols." }
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[github]
 
   def self.from_omniauth(auth)  
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
