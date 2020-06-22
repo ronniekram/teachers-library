@@ -2,27 +2,4 @@
 
 <h1>Edit <%= @book.title %> </h1>
 
-<%= form_with model: @book, local: true do |f| %>
-
-  <%= render partial: 'form', locals: { :f => f } %>
-
-  <div class="field">
-    <p>Check to remove subject: </p>
-    <% @book.subjects.each do |subject| %>
-      <li> <%= f.label :_destroy, "#{subject.name}" %> - <%= f.check_box :_destroy %> </li>
-    <% end %>
-  </div>
-
-  <%= f.fields_for :subjects do |subject_fields| %>
-    <%= subject_fields.text_field :name, :value => "" %> <br>
-  <% end %> <br>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-
-<%= form_tag book_path(@book), :method => :delete, data: {confirm: "Are you sure?"} do %>
-  <%= submit_tag "Delete Book" %>
-<% end %>
+  <%= render 'form' %>

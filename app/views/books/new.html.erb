@@ -1,15 +1,5 @@
 <%= render 'error' %>
 
 <h1>Create Book: </h1>
-<%= form_with model: @book, local: true do |f| %>
 
-  <%= render partial: 'form', locals: { :f => f } %>
-
-  <%= f.fields_for :subjects do |subject_fields| %>
-    <%= subject_fields.text_field :name %> <br>
-  <% end %> <br>
-  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  <%= render 'form' %>

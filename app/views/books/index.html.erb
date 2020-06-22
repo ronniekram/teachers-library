@@ -1,5 +1,5 @@
-<h1> <%= current_user.name %>'s Library</h1>
+<h1> School Library</h1>
 
 <% @books.each do |book| %>
-<li> <%= link_to book.title, user_book_path(current_user, book) %> </li>
+<li> <%= link_to "#{book.title} - #{book.author}", book_path(book) %> </li>
 <% end %>
