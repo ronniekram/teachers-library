@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 2020_06_22_000149) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "author"
-    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -25,35 +24,33 @@ ActiveRecord::Schema.define(version: 2020_06_22_000149) do
     t.date "start_date"
     t.integer "duration"
     t.integer "user_id"
+    t.integer "subject_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["subject_id"], name: "index_lesson_plans_on_subject_id"
+    t.index ["user_id"], name: "index_lesson_plans_on_user_id"
   end
 
   create_table "subjects", force: :cascade do |t|
-    t.integer "lesson_plan_id"
-    t.integer "book_id"
     t.string "name"
-    t.index ["book_id"], name: "index_subjects_on_book_id"
-    t.index ["lesson_plan_id"], name: "index_subjects_on_lesson_plan_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "name", default: "", null: false
+    t.string "grade"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "grade"
-    t.string "school"
     t.string "provider"
     t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "subjects", "books"
-  add_foreign_key "subjects", "lesson_plans"
+  add_foreign_key "lesson_plans", "subjects"
+  add_foreign_key "lesson_plans", "users"
 end

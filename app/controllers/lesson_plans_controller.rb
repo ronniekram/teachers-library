@@ -38,7 +38,7 @@
 
     def destroy
       @lesson_plan.destroy
-      redirect_to user_lesson_plans_path(current_user)
+      redirect_to lesson_plans_path
     end 
 
     private 
@@ -48,7 +48,6 @@
       :start_date,
       :duration, 
       :user_id,
-      :books,
       :book_ids => [],
       :subject_ids => [],
       :subject_attributes => [:name]
@@ -60,7 +59,7 @@
     end 
 
     def redirect 
-      redirect_to user_lesson_plan_path(current_user, @lesson_plan)
+      redirect_to lesson_plan_path(@lesson_plan)
     end 
 
   end
