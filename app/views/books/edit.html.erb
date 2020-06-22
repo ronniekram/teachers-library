@@ -16,7 +16,10 @@
   <%= f.fields_for :subjects do |subject_fields| %>
     <%= subject_fields.text_field :name, :value => "" %> <br>
   <% end %> <br>
+
+  <div class="actions">
     <%= f.submit %>
+  </div>
 <% end %>
 
 
