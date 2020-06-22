@@ -9,7 +9,7 @@
     end 
 
     def create 
-      @book = current_user.books.build(book_params)
+      @book = Book.build(book_params)
       if @book.save
         redirect_to book_path(@book)
       else 
@@ -26,7 +26,6 @@
     def book_params
       params.require(:book).permit(:title, 
       :author,
-      :subject
-        )
+      :subject)
     end     
   end
