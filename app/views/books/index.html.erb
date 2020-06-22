@@ -1,5 +1,5 @@
 <h1> School Library</h1>
 
 <% @books.each do |book| %>
-<li> <%= link_to "#{book.title} - #{book.author}", book_path(book) %> </li>
+<li> <%= book.title %> - <%= book.author %> </li>
 <% end %>

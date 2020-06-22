@@ -50,7 +50,7 @@
       :duration, 
       :user_id,
       :books_ids => [],
-      :books_attributes => [:title, :author]
+      :books_attributes => [:title, :author],
       :subjects_ids => [],
       :subjects_attributes => [:name]
       )
