@@ -1,8 +1,4 @@
-<h3> <%= @book.title %></h3>
-<p> Author: <%= @book.author %></p>
-<p> Subject(s): </p>
-<% @book.subjects.uniq.each do |subject| %>
-<li> <%= subject.name %> </li>
-<% end %>
+<h3>Title: <%= @book.title %></h3>
+<h3> Author: <%= @book.author %></h3>
 
-<%= link_to "Edit Book", edit_user_book_path(current_user, @book) %> | <%= link_to "Your Books", user_books_path(current_user) %>
+<%= link_to "Back To Library", books_path %>

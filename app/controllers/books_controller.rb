@@ -9,17 +9,17 @@
     end 
 
     def create 
-      @book = Book.build(book_params)
+      @book = Book.find_or_create_by(book_params)
       if @book.save
-        redirect_to book_path(@book)
+        redirect_to @book
       else 
         render :new 
       end 
     end 
 
-    def show
-      @book = Book.find(params[:id])
-    end 
+    # def show
+    #   @book = Book.find(params[:id])
+    # end 
 
     private
 

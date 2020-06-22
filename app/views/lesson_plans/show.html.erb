@@ -1,4 +1,4 @@
-<h1><%= current_user.name %> - <%= @lesson_plan.name %> </h1>
+<h1><%= @lesson_plan.name %> </h1>
 
 <p>Subject: <%= @lesson_plan.subjects.name %></p>
 
@@ -9,7 +9,7 @@
 <p> Book(s): </p> 
 <% @lesson_plan.books.each do |book| %>
 <li> 
-  <%= link_to book.title, user_book_path(current_user, book) %>
+  <%= "#{book.title} - #{book.author}" %>
 </li>
 <% end %> <br>
 
