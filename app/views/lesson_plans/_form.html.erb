@@ -6,15 +6,13 @@
 </div>
 
   <%= f.label "Subject: " %>
-  <% if !Subject.all.empty? %>
-    <%= f.options_for_select :subject_ids, Subject.all, :id, :name, :include_blank => true %>
-  <% end %>
+    <%= f.collection_select :subject_ids, Subject.all, :id, :name %>
   <%= f.fields_for :subjects do |subject_fields| %>
     <%= subject_fields.text_field :name%> <br>
   <% end %>
 
-  <%= f.label "Book(s): " %>
-  <%= f.collection_check_boxes(:book_ids, Book.all, :id, :title) %>
+  <%= f.label "Book(s): " %> <br>
+  <%= f.collection_check_boxes(:book_ids, Book.all, :id, :title) %> <br>
   <%= f.fields_for :books do |book_fields| %>
     <%= book_fields.label "Title: " %>
     <%= book_fields.text_field :title %> <br>

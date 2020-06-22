@@ -17,15 +17,9 @@
       end 
     end 
 
-    # def show
-    #   @book = Book.find(params[:id])
-    # end 
-
     private
 
     def book_params
-      params.require(:book).permit(:title, 
-      :author,
-      :subject)
+      params.require(:book).permit(:title, :author)
     end     
   end
