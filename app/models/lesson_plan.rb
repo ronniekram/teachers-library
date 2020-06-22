@@ -12,7 +12,7 @@ class LessonPlan < ApplicationRecord
     start_date.strftime("%B %d, %Y")
   end 
 
-  def subjects_attributes=(subject_attributes)
+  def subject_attributes=(subject_attributes)
     subject_attributes.values.each do |subject_attribute|
       if subject_attribute.present?
         subject = Subject.find_or_create_by(subject_attribute)
@@ -21,7 +21,7 @@ class LessonPlan < ApplicationRecord
     end
   end
 
-  def books_attributes=(book_attributes)
+  def book_attributes=(book_attributes)
     book_attributes.values.each do |book_attribute|
       if book_attribute.present?
         book = Book.find_or_create_by(book_attribute)
