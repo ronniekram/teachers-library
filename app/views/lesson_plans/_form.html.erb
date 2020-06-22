@@ -5,13 +5,15 @@
   <%= f.text_field :name %> <br>
 </div>
 
-  <%= f.options_for_select(:subjects_ids, Subject.all, :id, :name), :include_blank => true %>
-  <%= f.fields_for :subjects, lesson_plan.subjects.build do |subject_fields| %>
-    <%= subject_fields :name%>
+  <% if !Subject.all.empty? %>
+    <%= f.options_for_select :subjects_ids, Subject.all, :id, :name, :include_blank => true %>
+  <% end %>
+  <%= f.fields_for :subjects, @lesson_plan.subject.build do |subject_fields| %>
+    <%= subject_fields.text_field :name%>
   <% end %>
 
   <%= f.collection_check_boxes(:books_ids, Book.all, :id, :title, :author) %>
-  <%= f.fields_for :books, lesson_plan.books.build do |book_fields| %>
+  <%= f.fields_for :books, @lesson_plan.books.build do |book_fields| %>
     <%= book_fields.text_field :title %>
     <%= book_fields.text_field :author %>
   <% end %>

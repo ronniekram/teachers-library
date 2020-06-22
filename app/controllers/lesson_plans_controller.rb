@@ -7,8 +7,6 @@
   
     def new 
       @lesson_plan = LessonPlan.new
-      @lesson_plan.subjects.build
-      @lesson_plan.books.build
     end 
 
     def create 
