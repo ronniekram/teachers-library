@@ -51,7 +51,7 @@
       :user_id,
       :books_ids => [],
       :books_attributes => [:title, :author]
-      :subject_ids => [],
+      :subjects_ids => [],
       :subjects_attributes => [:name]
       )
     end 
