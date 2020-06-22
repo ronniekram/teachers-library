@@ -12,22 +12,30 @@
   }
 
   body {
-    background-color: #c9b1bd;
+    background-color: #768948;
     color: black;
     font-family: 'helvetica';
     line-height: 18px;
   }
 
+  nav {
+    background-color: #B39C4d;
+    border-bottom: #1E2F23 1px solid;
+    padding: 10px; 
+  }
+
   .content {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    }
-    
-    .nav { grid-area: 1 / 1 / 2 / 9; }
-    .photo { grid-area: 2 / 1 / 4 / 9; }
-    .left-info { grid-area: 4 / 1 / 8 / 5; }
-    .right-info { grid-area: 4 / 5 / 8 / 9; }
-    .footer { grid-area: 8 / 1 / 9 / 9; }
+    width: 75%;
+    height: auto;
+  }
+
+  footer {
+    background-color: #B39C4d;
+    border-top: #1E2F23 1px solid;
+    padding: 10px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #1E2F23;
+  }
