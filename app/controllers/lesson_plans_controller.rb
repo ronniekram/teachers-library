@@ -48,9 +48,10 @@
       :start_date,
       :duration, 
       :user_id,
-      :book_ids => [],
+      :books_ids => [],
+      :books_attributes => [:title, :author]
       :subject_ids => [],
-      :subject_attributes => [:name]
+      :subjects_attributes => [:name]
       )
     end 
 
