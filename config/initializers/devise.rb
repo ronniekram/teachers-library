@@ -310,8 +310,6 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
   config.scoped_views = true
 
-  config.omniauth :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET'],
-  scope: 'email',
-  info_fields: 'email'
+  config.omniauth :github, '850baff8ed15f3456a0b', '18cc5f146bbb9464511ce5680008900b82504530', scope: 'user:email'
 
 end
