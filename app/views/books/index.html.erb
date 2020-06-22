@@ -1,4 +1,4 @@
-<h1> <%= current_user.user_name %>'s Library</h1>
+<h1> <%= current_user.name %>'s Library</h1>
 
 <% @books.each do |book| %>
 <li> <%= link_to book.title, user_book_path(current_user, book) %> </li>
