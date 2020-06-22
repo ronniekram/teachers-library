@@ -1,4 +1,4 @@
 class Subject < ApplicationRecord
-  belongs_to :lesson_plan, optional: true
-  belongs_to :book
+  has_many :lesson_plans
+  has_many :books, through: :lesson_plans
 end 

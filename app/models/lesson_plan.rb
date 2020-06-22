@@ -1,11 +1,11 @@
 class LessonPlan < ApplicationRecord
   belongs_to :user
-  has_many :subjects, :dependent => :destroy
-  has_many :books, through: :subjects
+  belongs_to :subject
+  has_many :books
 
   validates :duration, presence: true, inclusion: { in: (1..30), message: "cannot be less than 1 day or more than 30 days." }
   validates :name, presence: true, uniqueness: true
-  validates :date, presence: true, uniqueness: true
+  validates :start_date, presence: true, uniqueness: true
   accepts_nested_attributes_for :subjects
 
   scope :dates, -> { order(start_date: :asc) }

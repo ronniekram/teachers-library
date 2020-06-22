@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  has_many :books
   has_many :lesson_plans
   validates :name, format: { with: /[a-zA-Z]/, message: "Your name cannot contain numbers or symbols." }
 
