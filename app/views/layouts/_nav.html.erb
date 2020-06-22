@@ -1,0 +1,21 @@
+<div class="nav">
+<p class="navbar">
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>. 
+  <%= link_to 'My Library', user_books_path(current_user) %> | 
+  <%= link_to 'My Lesson Plans', user_lesson_plans_path(current_user) %> |
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+
+<% else %>
+  <%= link_to "Sign up", signup_path, :class => 'navbar-link'  %> |
+  <%= link_to "Login", login_path, :class => 'navbar-link'  %>
+<% end %>
+</p>
+  <% if user_signed_in? %>
+    <div class="navbar">
+        <%= link_to "New Book", new_user_book_path(current_user) %> |
+        <%= link_to "New Lesson Plan", new_user_lesson_plan_path(current_user) %> 
+    </div>
+  <% end %>
+</div>
