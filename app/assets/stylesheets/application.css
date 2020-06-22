@@ -16,23 +16,45 @@
     color: black;
     font-family: 'helvetica';
     line-height: 18px;
+    display: block;
   }
 
   nav {
     background-color: #B39C4d;
-    border-bottom: #1E2F23 1px solid;
-    padding: 10px; 
+    border-bottom: black 1px solid;
+    padding-top: 10px;
+    width: 100%;
+    height: 30px; 
+  }
+  .nav-left {
+    float: left;
+    padding-left: 15px;
+  }
+  .nav-right {
+    float: right;
+    padding-right: 15px;
   }
 
   .content {
     width: 75%;
-    height: auto;
+    margin: auto;
+    padding: 50px;
+    display: inline-block;
   }
 
-  footer {
-    background-color: #B39C4d;
-    border-top: #1E2F23 1px solid;
-    padding: 10px;
+  input {
+    background-color: #b9b092;
+    color: black;
+    padding: 3px;
+    border: 1px solid black;
+  }
+
+  .field {
+    line-height: 25px;
+  }
+
+  .actions input {
+    padding: 5px 10px;
   }
 
   a {
