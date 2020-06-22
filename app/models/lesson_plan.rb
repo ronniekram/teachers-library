@@ -14,15 +14,19 @@ class LessonPlan < ApplicationRecord
 
   def subjects_attributes=(subject_attributes)
     subject_attributes.values.each do |subject_attribute|
-      subject = Subject.find_or_create_by(subject_attribute)
-      self.subjects << subject
+      if subject_attribute.present?
+        subject = Subject.find_or_create_by(subject_attribute)
+        self.subjects << subject
+      end 
     end
   end
 
   def books_attributes=(book_attributes)
     book_attributes.values.each do |book_attribute|
-      book = Book.find_or_create_by(book_attribute)
-      self.books << book
+      if book_attribute.present?
+        book = Book.find_or_create_by(book_attribute)
+        self.books << book
+      end 
     end
   end
 
