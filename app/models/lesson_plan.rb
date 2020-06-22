@@ -21,10 +21,10 @@ class LessonPlan < ApplicationRecord
     end
   end
 
-  def book_attributes=(book_attributes)
-    book_attributes.values.each do |book_attribute|
-      if book_attribute.present?
-        book = Book.find_or_create_by(book_attribute)
+  def books_attributes=(books_attributes)
+    books_attributes.values.each do |book_attributes|
+      if book_attributes.present?
+        book = Book.find_or_create_by(book_attributes)
         self.books << book
       end 
     end
