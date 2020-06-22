@@ -6,9 +6,9 @@
 </div>
 
   <%= f.label "Subject: " %>
-    <%= f.collection_select :subject_ids, Subject.all, :id, :name %>
+    <%= collection_select(@lesson_plan, :subject_id, Subject.all, :id, :name) %> <br>
   <%= f.fields_for :subjects do |subject_fields| %>
-    <%= subject_fields.text_field :name%> <br>
+    New: <%= subject_fields.text_field :name%> <br>
   <% end %>
 
   <%= f.label "Book(s): " %> <br>
