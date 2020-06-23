@@ -7,6 +7,8 @@
   
     def new 
       @lesson_plan = LessonPlan.new
+      @lesson_plan.subject = Subject.find_or_create_by(name: :name)
+      
     end 
 
     def create 

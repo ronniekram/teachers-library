@@ -12,14 +12,14 @@ class LessonPlan < ApplicationRecord
     start_date.strftime("%B %d, %Y")
   end 
 
-  def subject_attributes=(subject_attributes)
-    subject_attributes.values.each do |subject_attribute|
-      if subject_attribute["name"].present?
-        subject = Subject.find_or_create_by(subject_attribute)
-        self.subject << subject
-      end
-    end
-  end
+  # def subjects_attributes=(subject_attributes)
+  #   subject_attributes.values.each do |subject_attribute|
+  #     if subject_attribute["name"].present?
+  #       subject = Subject.find_or_create_by(subject_attribute)
+  #       self.subjects << subject
+  #     end
+  #   end
+  # end
 
   def books_attributes=(book_attributes)
     book_attributes.values.each do |book_attribute|
