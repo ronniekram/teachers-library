@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # resources :users, only: [:show, :edit, :update, :destroy]
   resources :lesson_plans
   resources :books, only: [:index, :new, :create]
-  resources :subjects, only: [:create]
+  # resources :subjects, only: [:create]
 
   # resources :users, only: [:show, :edit, :update] do 
   #   resources :books, only: [:show, :index, :new, :edit]

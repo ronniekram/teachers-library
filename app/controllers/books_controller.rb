@@ -9,7 +9,7 @@
     end 
 
     def create 
-      @book = Book.find_or_create_by(book_params)
+      @book = Book.create(book_params)
       if @book.save
         redirect_to books_path
       else 

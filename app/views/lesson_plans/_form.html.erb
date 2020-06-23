@@ -5,20 +5,9 @@
   <%= f.text_field :name %> <br>
 </div>
 
-  <%= f.label "Subject: " %>
-    <%= collection_select(:lesson_plan, :subject_id, Subject.all, :id, :name, prompt: true) %> <br>
+  <%= f.label "Subject: " %> 
   <%= f.fields_for :subject, @lesson_plan do |subject_fields| %>
-    New: <%= subject_fields.text_field :name %> <br>
-  <% end %>
- 
-
-  <%= f.label "Book(s): " %> <br>
-  <%= f.collection_check_boxes(:book_ids, Book.all, :id, :title) %> <br>
-  <%= f.fields_for :books do |book_fields| %>
-    <%= book_fields.label "Title: " %>
-    <%= book_fields.text_field :title %> <br>
-    <%= book_fields.label "Author: " %>
-    <%= book_fields.text_field :author %> <br>
+    <%= subject_fields.text_field :name %> <br>
   <% end %>
 
 <div class="field<%= ' field_with_errors' if @lesson_plan.errors[:start_date].any? %>">

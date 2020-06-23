@@ -7,8 +7,6 @@
   
     def new 
       @lesson_plan = LessonPlan.new
-      @lesson_plan.subject = Subject.find_or_create_by(name: :name)
-      
     end 
 
     def create 
@@ -49,10 +47,8 @@
       :start_date,
       :duration, 
       :user_id,
-      :book_ids => [],
-      :books_attributes => [:id, :title, :author],
-      :subject_id => [],
-      :subject_attributes => [:id, :name]
+      :subject_id,
+      :subject_attributes => [:name]
       )
     end 
 

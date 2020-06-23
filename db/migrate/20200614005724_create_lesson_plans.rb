@@ -4,8 +4,8 @@ class CreateLessonPlans < ActiveRecord::Migration[6.0]
       t.string :name
       t.date :start_date
       t.integer :duration
-      t.belongs_to :user, index: true, foreign_key: true
-      t.belongs_to :subject, index: true, foreign_key: true
+      t.integer :user_id
+      t.integer :subject_id
       t.timestamps
     end
   end

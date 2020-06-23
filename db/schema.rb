@@ -27,8 +27,6 @@ ActiveRecord::Schema.define(version: 2020_06_22_000149) do
     t.integer "subject_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["subject_id"], name: "index_lesson_plans_on_subject_id"
-    t.index ["user_id"], name: "index_lesson_plans_on_user_id"
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -51,6 +49,4 @@ ActiveRecord::Schema.define(version: 2020_06_22_000149) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "lesson_plans", "subjects"
-  add_foreign_key "lesson_plans", "users"
 end
