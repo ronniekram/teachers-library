@@ -15,8 +15,10 @@ class LessonPlan < ApplicationRecord
 
   def books_attributes=(book_attributes)
     book_attributes.values.each do |book_attribute|
-      book = Book.find_or_create_by(book_attribute)
-      self.books << book
+      if book_attribute["title"].present? && book_attribute["author"].present?
+        book = Book.find_or_create_by(book_attribute)
+        self.books << book
+      end 
     end
   end
 end

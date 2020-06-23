@@ -6,11 +6,13 @@
 </div>
 
   <%= f.label "Subject: " %> 
+  <%= collection_select(:lesson_plan, :subject_id, Subject.all, :id, :name, prompt: true) %> <br>
   <%= f.fields_for :subject, @lesson_plan do |subject_fields| %>
     <%= subject_fields.text_field :name %> <br>
   <% end %>
 
-  <%= f.label "Book: " %> <br>
+  <%= f.label "Book(s): " %> <br>
+  <%= f.collection_check_boxes(:book_ids, Book.all, :id, :title) %> <br>
   <%= f.fields_for :books, @lesson_plan.books do |book_fields| %>
     <%= book_fields.label "Title: " %>
     <%= book_fields.text_field :title %> <br>
