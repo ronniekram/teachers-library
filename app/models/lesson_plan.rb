@@ -13,4 +13,10 @@ class LessonPlan < ApplicationRecord
     start_date.strftime("%B %d, %Y")
   end 
 
+  def books_attributes=(book_attributes)
+    book_attributes.values.each do |book_attribute|
+      book = Book.find_or_create_by(book_attribute)
+      self.books << book
+    end
+  end
 end

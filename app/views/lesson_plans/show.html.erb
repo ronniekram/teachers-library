@@ -6,5 +6,10 @@
 
 <p>Subject: <%= @lesson_plan.subject.name %> </p>
 
+<p>Book: 
+  <% @lesson_plan.books.each do |book| %>
+  <li> <%= book.title %> - <%= book.author %> </li>
+  <% end %>
+</p>
 
 <%= link_to "Edit Lesson Plan", edit_lesson_plan_path(@lesson_plan) %> | <%= link_to "Your Lesson Plans", lesson_plans_path %>
