@@ -2,7 +2,8 @@
     before_action :set_lesson_plan, except: [:index, :new, :create]
 
     def index 
-      @lesson_plans = current_user.lesson_plans.all.dates
+      # @lesson_plans = current_user.lesson_plans.all.dates
+      @lesson_plans = LessonPlan.all.dates
     end  
   
     def new 
@@ -20,9 +21,6 @@
     end 
 
     def show
-      if !current_user 
-        redirect_to 
-      end 
     end
 
     def edit 

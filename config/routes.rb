@@ -7,18 +7,15 @@ Rails.application.routes.draw do
   end
 
   root 'home#index'
-  # resources :users, only: [:show, :edit, :update, :destroy]
-  resources :lesson_plans
-  resources :books, except: [:destroy]
-  resources :subjects, only: [:new, :create]
-
-  # resources :users, only: [:show, :edit, :update] do 
-  #   resources :books, only: [:show, :index, :new, :edit]
-  #   resources :lesson_plans, only: [:show, :index, :new, :edit]
-  #   resources :subjects, only: [:destroy]
+  # resources :users, only: [:show] do 
+  #   resources :lesson_plans
   # end 
 
-  # resources :books, only: [:create, :update, :destroy]
-  # resources :lesson_plans, only: [:create, :update, :destroy]
+  scope '/users' do 
+    resources :lesson_plans
+  end 
+  
+  resources :books, except: [:destroy]
+  resources :subjects, only: [:new, :create]
 
 end
