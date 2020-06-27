@@ -15,6 +15,8 @@ ActiveRecord::Schema.define(version: 2020_06_22_000149) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "author"
+    t.string "publisher"
+    t.integer "pages"
     t.integer "lesson_plan_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -31,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_06_22_000149) do
   end
 
   create_table "subjects", force: :cascade do |t|
-    t.string "name"
+    t.string "sub_name"
   end
 
   create_table "users", force: :cascade do |t|

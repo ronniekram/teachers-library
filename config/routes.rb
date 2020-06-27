@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root 'home#index'
   # resources :users, only: [:show, :edit, :update, :destroy]
   resources :lesson_plans
-  resources :books, only: [:index, :new, :create]
+  resources :books, except: [:destroy]
   # resources :subjects, only: [:create]
 
   # resources :users, only: [:show, :edit, :update] do 

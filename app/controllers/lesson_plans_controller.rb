@@ -47,7 +47,7 @@
       :duration, 
       :user_id,
       :subject_id,
-      :subject_attributes => [:name],
+      :subject_attributes => [:sub_name],
       :book_ids => [],
       :books_attributes => [:title, :author]
       )
