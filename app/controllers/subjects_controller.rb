@@ -1,4 +1,5 @@
   class SubjectsController < ApplicationController 
+
     private
 
     def subject_params

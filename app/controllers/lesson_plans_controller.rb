@@ -2,13 +2,13 @@
     before_action :set_lesson_plan, except: [:index, :new, :create]
 
     def index 
-      # @lesson_plans = current_user.lesson_plans.all.dates
       @lesson_plans = LessonPlan.all.dates
     end  
   
     def new 
       @lesson_plan = LessonPlan.new
       @lesson_plan.books.build
+      @subject = Subject.new
     end 
 
     def create 
