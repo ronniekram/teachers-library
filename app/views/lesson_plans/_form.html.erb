@@ -11,8 +11,11 @@
     <%= subject_fields.text_field :sub_name %> <br>
   <% end %>
 
-  <%= f.label "Book(s): " %> <br>
-  <%= f.collection_check_boxes(:book_ids, Book.all, :id, :title) %> <br>
+  <%= f.label :books, "Book(s): " %> <br>
+  <div class="checkbox-container">
+    <%= f.collection_check_boxes :book_ids, Book.all, :id, :title, class: 'checkbox' %>
+  </div>  <br>
+
 
 <div class="field<%= ' field_with_errors' if @lesson_plan.errors[:start_date].any? %>">
   <%= f.label :start_date, "Start Date: " %>
