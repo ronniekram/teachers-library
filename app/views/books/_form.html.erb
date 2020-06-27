@@ -10,5 +10,15 @@
   <%= f.text_field :author %>
 </div> <br>
 
+<div class="field<%= ' field_with_errors' if @book.errors[:author].any? %>">
+  <%= f.label :publisher %> <br>
+  <%= f.text_field :publisher %>
+</div> <br>
+
+<div class="field<%= ' field_with_errors' if @book.errors[:author].any? %>">
+  <%= f.label :pages %> <br>
+  <%= f.number_field :pages %>
+</div> <br>
+
 <%= f.submit %>
 <% end %>

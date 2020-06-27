@@ -6,7 +6,6 @@ class LessonPlan < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :start_date, presence: true, uniqueness: true
   accepts_nested_attributes_for :subject, reject_if: :all_blank
-
   scope :dates, -> { order(start_date: :asc) }
 
   def lesson_start

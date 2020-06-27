@@ -5,9 +5,5 @@ class Book < ApplicationRecord
   validates :title, uniqueness: true;
 
   scope :alphabet, -> { order(title: :asc) }
-
-  def subjects_attributes=(subject_attributes_hash)
-  end 
-
 end
 

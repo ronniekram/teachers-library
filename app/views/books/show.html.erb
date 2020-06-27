@@ -1,4 +1,6 @@
 <h3>Title: <%= @book.title %></h3>
-<h3> Author: <%= @book.author %></h3>
+<h3>Author: <%= @book.author %></h3>
+<h3>Publisher: <%= @book.publisher %></h3>
+<h3>Pages: <%= @book.pages %></h3>
 
-<%= link_to "Back To Library", books_path %>
+<%= link_to "Edit Book", edit_book_path(@book) %> | <%= link_to "Back To Library", books_path %>
