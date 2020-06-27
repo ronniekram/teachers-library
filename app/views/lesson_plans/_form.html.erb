@@ -13,12 +13,6 @@
 
   <%= f.label "Book(s): " %> <br>
   <%= f.collection_check_boxes(:book_ids, Book.all, :id, :title) %> <br>
-  <%= f.fields_for :books, @lesson_plan.books do |book_fields| %>
-    <%= book_fields.label "Title: " %>
-    <%= book_fields.text_field :title %> <br>
-    <%= book_fields.label "Author: " %>
-    <%= book_fields.text_field :author %> <br>
-  <% end %>
 
 <div class="field<%= ' field_with_errors' if @lesson_plan.errors[:start_date].any? %>">
   <%= f.label :start_date, "Start Date: " %>

@@ -8,8 +8,8 @@
 
 <p>Book(s): 
   <% @lesson_plan.books.each do |book| %>
-  <li> <%= book.title %> - <%= book.author %> </li>
+  <li> <%= link_to "#{book.title} - #{book.author}", book_path(book) %> </li>
   <% end %>
 </p> <br>
 
-<%= link_to "Edit Lesson Plan", edit_lesson_plan_path(@lesson_plan) %> | <%= link_to "Your Lesson Plans", lesson_plans_path %>
+<%= link_to "Edit Lesson Plan", edit_lesson_plan_path(@lesson_plan) %>
