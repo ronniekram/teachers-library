@@ -1,10 +1,10 @@
 # README
 
 # Teacher Helper
-## A place for teacher's to keep their classroom books and lesson plans in order.
+## A place for teacher's to keep track of their school's library and their own lesson plans.
 
 ### About 
-A Ruby app for teachers to keep track of the books in their classroom library and their upcoming lesson plans.
+A Ruby app for teachers to keep track of the books in their school's library and their upcoming lesson plans.
 
 ### Install Instructions
 Make sure that you're in the app's directory. 
