@@ -76,6 +76,9 @@ GEM
     coderay (1.1.3)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
+    date_validator (0.10.0)
+      activemodel (>= 3)
+      activesupport (>= 3)
     devise (4.7.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -244,6 +247,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  date_validator
   devise
   dotenv-rails
   jbuilder (~> 2.7)

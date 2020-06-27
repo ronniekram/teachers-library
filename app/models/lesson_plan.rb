@@ -5,15 +5,12 @@ class LessonPlan < ApplicationRecord
   accepts_nested_attributes_for :subject, reject_if: :all_blank
 
   validates :duration, presence: true, inclusion: { in: (1..30), message: "cannot be less than 1 day or more than 30 days." }
-  validates :name, presence: true, uniqueness: true
-  validates :start_date, presence: true, uniqueness: true, in_past: true
+  validates :name, :start_date, presence: true, uniqueness: true
+  # validates :start_date, presence: true, uniqueness: true, in_past: true
+  validates :start_date,
+  date: { after: Proc.new { Date.today }, message: 'must be after today' },
+  on: :create
   scope :dates, -> { order(start_date: :asc) }
-
-  def in_past 
-    if start_date.present? && start_date < Date.today
-      errors.add(:start_date, "can't be in the past.")
-    end
-  end 
   
   def lesson_start
     start_date.strftime("%B %d, %Y")

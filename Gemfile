@@ -25,9 +25,14 @@ gem 'pry'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+# creates user model with all routes, sessions and authentication
 gem 'devise'
+# allows third party authentication with github
 gem 'omniauth-github'
+# allows use of .env files
 gem 'dotenv-rails'
+# extremely helpful date validations
+gem 'date_validator'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
