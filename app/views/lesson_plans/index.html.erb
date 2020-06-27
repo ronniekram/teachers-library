@@ -1,9 +1,9 @@
 <h3> <%= current_user.name %>'s Lesson Plans</h3>
 
 <% if current_user.lesson_plans.empty? %>
-<p> You don't have any lesson plans yet. <%= link_to "Add one?", new_user_lesson_plan_path %></p>
+<p> You don't have any lesson plans yet. <%= link_to "Add one?", new_lesson_plan_path %></p>
 <% else %>
-  <% @lesson_plans.each do |plan| %>
-  <li> <%= link_to "#{plan.name} - #{plan.lesson_start}", user_lesson_plan_path(plan) %></li>
+  <% current_user.lesson_plans.each do |plan| %>
+  <li> <%= link_to "#{plan.name} - #{plan.lesson_start}", lesson_plan_path(plan) %></li>
   <% end %>
 <% end %>
