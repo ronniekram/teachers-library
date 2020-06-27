@@ -20,6 +20,9 @@
     end 
 
     def show
+      if !current_user 
+        redirect_to 
+      end 
     end
 
     def edit 

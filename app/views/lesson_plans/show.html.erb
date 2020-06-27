@@ -1,15 +1,15 @@
 <h1><%= @lesson_plan.name %> </h1>
 
-<p>Duration: <%= @lesson_plan.duration %> days</p>
+<p>Start Date: <%= @lesson_plan.lesson_start %></p> <br>
 
-<p>Start Date: <%= @lesson_plan.lesson_start %></p>
+<p>Duration: <%= @lesson_plan.duration %> days</p> <br>
 
-<p>Subject: <%= @lesson_plan.subject.sub_name %> </p>
+<p>Subject: <%= @lesson_plan.subject.sub_name %> </p> <br>
 
-<p>Book: 
+<p>Book(s): 
   <% @lesson_plan.books.each do |book| %>
   <li> <%= book.title %> - <%= book.author %> </li>
   <% end %>
-</p>
+</p> <br>
 
 <%= link_to "Edit Lesson Plan", edit_lesson_plan_path(@lesson_plan) %> | <%= link_to "Your Lesson Plans", lesson_plans_path %>

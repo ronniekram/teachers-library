@@ -7,7 +7,7 @@
 
   <%= f.label "Subject: " %> 
   <%= collection_select(:lesson_plan, :subject_id, Subject.all, :id, :sub_name, prompt: true) %> <br>
-  <%= f.fields_for :subject, @lesson_plan do |subject_fields| %>
+  <%= f.fields_for :subject, @subject do |subject_fields| %>
     <%= subject_fields.text_field :sub_name %> <br>
   <% end %>
 
