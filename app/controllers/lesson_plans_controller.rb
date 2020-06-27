@@ -12,13 +12,11 @@
 
     def create 
       @lesson_plan = current_user.lesson_plans.build(lesson_plan_params)
-
       if @lesson_plan.save
         redirect
       else 
         render :new
       end 
- 
     end 
 
     def show
@@ -62,5 +60,4 @@
     def redirect 
       redirect_to lesson_plan_path(@lesson_plan)
     end 
-
   end
