@@ -1,24 +1,26 @@
+<div class="form-container">
 <%= form_for @book do |f| %>
 
+  <%= f.label :title, "Title: " %> <br>
 <div class="field<%= ' field_with_errors' if @book.errors[:title].any? %>">
-  <%= f.label :title %> <br>
   <%= f.text_field :title %>
 </div> <br>
 
+  <%= f.label :author, "Author: " %> <br>
 <div class="field<%= ' field_with_errors' if @book.errors[:author].any? %>">
-  <%= f.label :author %> <br>
   <%= f.text_field :author %>
 </div> <br>
 
+  <%= f.label :publisher, "Publisher: " %> <br>
 <div class="field<%= ' field_with_errors' if @book.errors[:author].any? %>">
-  <%= f.label :publisher %> <br>
   <%= f.text_field :publisher %>
 </div> <br>
 
+  <%= f.label :pages, "Pages: " %> <br>
 <div class="field<%= ' field_with_errors' if @book.errors[:author].any? %>">
-  <%= f.label :pages %> <br>
   <%= f.number_field :pages %>
 </div> <br>
 
 <%= f.submit %>
 <% end %>
+</div>

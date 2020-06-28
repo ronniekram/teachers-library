@@ -1,3 +1,5 @@
+<div class="form-container">
+
 <%= form_with model: @lesson_plan, local: true do |f| %>
 
 <div class="field<%= ' field_with_errors' if @lesson_plan.errors[:name].any? %>">
@@ -5,11 +7,16 @@
   <%= f.text_field :name %> <br>
 </div>
 
-  <%= f.label "Subject: " %> 
-  <%= collection_select(:lesson_plan, :subject_id, Subject.all, :id, :sub_name, prompt: true) %> <br>
-  <%= f.fields_for :subject, @subject do |subject_fields| %>
-    <%= subject_fields.text_field :sub_name %> <br>
-  <% end %>
+  <div class="field<%= ' field_with_errors' if @lesson_plan.errors[:subject].any? %>">
+    <%= f.label "Subject: " %> <br>
+    <%= collection_select(:lesson_plan, :subject_id, Subject.all, :id, :sub_name, prompt: true, class: "select") %> <br>
+    </div>
+  <div class="field<%= ' field_with_errors' if @lesson_plan.errors[:subject].any? %>">
+    <%= f.label "Create New: " %> <br>
+    <%= f.fields_for :subject, @subject do |subject_fields| %>
+      <%= subject_fields.text_field :sub_name %> <br>
+    <% end %>
+  </div>
 
   <%= f.label :books, "Book(s): " %> <br>
   <div class="checkbox-container">
@@ -29,3 +36,5 @@
 
   <%= f.submit %>
 <% end %>
+
+</div>
