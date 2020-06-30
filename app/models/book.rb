@@ -6,5 +6,19 @@ class Book < ApplicationRecord
   validates :pages, presence: true, numericality: { greater_than_or_equal_to: 1 }
 
   scope :alphabet, -> { order(title: :asc) }
+
+  def self.search(search) 
+    if search
+      book = Book.find_by(name: search)
+      if book 
+        self.where(book)
+      else 
+        @books = Book.all 
+      end 
+    else 
+      @books = Book.all
+    end 
+  end 
+
 end
 

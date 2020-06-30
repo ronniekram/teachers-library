@@ -1,7 +1,7 @@
   class BooksController < ApplicationController
     before_action :set_book, except: [:index, :new, :create]
     def index 
-      @books = Book.all.alphabet
+      @books = Book.search(params[:search]).alphabet
     end
 
     def new 
@@ -35,7 +35,7 @@
     private
 
     def book_params
-      params.require(:book).permit(:title, :author, :publisher, :pages)
+      params.require(:book).permit(:title, :author, :publisher, :pages, :search)
     end  
     
     def set_book 
