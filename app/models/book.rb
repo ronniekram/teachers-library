@@ -7,18 +7,12 @@ class Book < ApplicationRecord
 
   scope :alphabet, -> { order(title: :asc) }
 
-  def self.search(search) 
+  def self.search(search)
     if search
-      book = Book.find_by(name: search)
-      if book 
-        self.where(book)
-      else 
-        @books = Book.all 
-      end 
+      @books = Book.where('title LIKE ?', "%#{search}%")
     else 
       @books = Book.all
     end 
   end 
-
 end
 

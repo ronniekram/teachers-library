@@ -35,7 +35,7 @@
     private
 
     def book_params
-      params.require(:book).permit(:title, :author, :publisher, :pages, :search)
+      params.require(:book).permit(:title, :author, :publisher, :pages)
     end  
     
     def set_book 
