@@ -1,5 +1,9 @@
   class SubjectsController < ApplicationController 
 
+    def index
+      @subjects = Subject.all.creation
+    end 
+
     private
 
     def subject_params
