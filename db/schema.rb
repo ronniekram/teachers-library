@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_06_22_000149) do
     t.string "publisher"
     t.integer "pages"
     t.integer "lesson_plan_id"
+    t.integer "subject_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -28,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_06_22_000149) do
     t.integer "duration"
     t.integer "user_id"
     t.integer "subject_id"
+    t.integer "book_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

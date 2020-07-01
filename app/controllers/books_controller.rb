@@ -6,11 +6,11 @@
 
     def new 
       @book = Book.new
+      @book.subjects.build
     end 
 
     def create 
-      @book = Book.create(book_params)
-      if @book.save
+      if Book.create(book_params)
         redirect_to books_path
       else 
         render :new 
@@ -24,9 +24,8 @@
     end 
 
     def update
-      @book.update(book_params)
-      if @book.save 
-        redirect
+      if @book.update(book_params) 
+        redirect_to @book
       else 
         render :edit
       end 
@@ -35,10 +34,16 @@
     private
 
     def book_params
-      params.require(:book).permit(:title, :author, :publisher, :pages)
+      params.require(:book).permit(:title, 
+      :author, 
+      :publisher,
+      :pages,
+      :subject_ids,
+      :subject_attributes => [:sub_name])
     end  
     
     def set_book 
       @book = Book.find_by(id: params[:id])
     end 
+
   end

@@ -2,5 +2,10 @@
 <h3>Author: <%= @book.author %></h3>
 <h3>Publisher: <%= @book.publisher %></h3>
 <h3>Pages: <%= @book.pages %></h3>
+<p>Subject(s): 
+  <% @book.subjects.each do |subject| %>
+  <li> <%= subject.sub_name %> </li>
+  <% end %>
+</p> <br>
 
 <%= link_to "Edit Book", edit_book_path(@book) %> | <%= link_to "Back To Library", books_path %>

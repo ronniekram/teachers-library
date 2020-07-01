@@ -21,6 +21,11 @@
   <%= f.number_field :pages %>
 </div> <br>
 
+  <%= f.label :subjects, "Subject(s): " %> <br>
+  <div class="checkbox-container">
+    <%= f.collection_check_boxes :subject_ids, Subject.all, :id, :sub_name, class: 'checkbox' %>
+  </div>  <br>
+
 <%= f.submit %>
 <% end %>
 </div>

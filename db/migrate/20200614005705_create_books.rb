@@ -6,6 +6,7 @@ class CreateBooks < ActiveRecord::Migration[6.0]
       t.string :publisher
       t.integer :pages
       t.integer :lesson_plan_id
+      t.integer :subject_id
       t.timestamps
     end
   end

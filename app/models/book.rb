@@ -4,6 +4,7 @@ class Book < ApplicationRecord
   validates :title, :author, :publisher, presence: true
   validates :title, uniqueness: true
   validates :pages, presence: true, numericality: { greater_than_or_equal_to: 1 }
+  accepts_nested_attributes_for :subjects
 
   scope :alphabet, -> { order(title: :asc) }
 
