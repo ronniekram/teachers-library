@@ -10,8 +10,9 @@
     end 
 
     def create 
-      if Book.create(book_params)
-        redirect_to books_path
+      @book = Book.create(book_params)
+      if @book.save
+        redirect_to @book
       else 
         render :new 
       end 
