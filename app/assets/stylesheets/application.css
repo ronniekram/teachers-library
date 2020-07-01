@@ -60,6 +60,16 @@
     flex-wrap: nowrap;
     align-self: center;
   }
+  .error-exp {
+    color: black;
+  }
+  .error_explanation {
+    color: black;
+  }
+
+  .alert {
+    color: black;
+  }
   .select {
     background-color: #b9b092;
     color: black;

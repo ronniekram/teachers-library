@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :lesson_plans
-  validates :name, format: { with: /[a-zA-Z]/, message: "Your name cannot contain numbers or symbols." }
+  validates :name, presence: true, format: { with: /[a-zA-Z]/, message: "Your name cannot contain numbers or symbols." }
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
