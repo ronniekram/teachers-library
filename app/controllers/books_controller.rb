@@ -1,5 +1,6 @@
   class BooksController < ApplicationController
     before_action :set_book, except: [:index, :new, :create]
+    
     def index 
       @books = Book.search(params[:search]).alphabet
     end

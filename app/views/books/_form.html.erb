@@ -1,30 +1,31 @@
 <div class="form-container">
 <%= form_for @book do |f| %>
 
-  <%= f.label :title, "Title: " %> <br>
-<div class="field<%= ' field_with_errors' if @book.errors[:title].any? %>">
-  <%= f.text_field :title %>
-</div> <br>
+  <div class="field">
+    <%= f.label :title, "Title: " %> <br>
+    <%= f.text_field :title %> <br>
+  </div>
 
-  <%= f.label :author, "Author: " %> <br>
-<div class="field<%= ' field_with_errors' if @book.errors[:author].any? %>">
-  <%= f.text_field :author %>
-</div> <br>
+  <div class="field">
+    <%= f.label :author, "Author: " %> <br>
+    <%= f.text_field :author %> <br>
+  </div>
 
-  <%= f.label :publisher, "Publisher: " %> <br>
-<div class="field<%= ' field_with_errors' if @book.errors[:author].any? %>">
-  <%= f.text_field :publisher %>
-</div> <br>
+  <div class="field">
+    <%= f.label :publisher, "Publisher: " %> <br>
+    <%= f.text_field :publisher %> <br>
+  </div>
 
-  <%= f.label :pages, "Pages: " %> <br>
-<div class="field<%= ' field_with_errors' if @book.errors[:author].any? %>">
-  <%= f.number_field :pages %>
-</div> <br>
+  <div class="field">
+    <%= f.label :pages, "Pages: " %> <br>
+    <%= f.number_field :pages %> <br>
+  </div>
 
   <%= f.label :subjects, "Subject(s): " %> <br>
   <div class="checkbox-container">
     <%= f.collection_check_boxes :subject_ids, Subject.all, :id, :sub_name, class: 'checkbox' %>
-  </div>  <br>
+  </div> 
+  <br>
 
 <%= f.submit %>
 <% end %>
